@@ -1,0 +1,182 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// criar uma migration: yarn prisma migrate dev
+
+model User {
+  id       String  @id @default(uuid())
+  photo    String?
+  name     String  @unique @db.VarChar(75)
+  email    String  @unique @db.VarChar(80)
+  password String
+
+  role          Role    @default(USER)
+  authenticated Boolean @default(false)
+
+  created_at DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  articles   Article[]
+  categories Category[]
+  tags1      Tag1[]
+  tags2      Tag2[]
+  tags3      Tag3[]
+  tags4      Tag4[]
+  tags5      Tag5[]
+
+  @@map("users")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model PasswordRecovery {
+  id    String @id @default(uuid())
+  email String
+
+  @@map("passwordRecoverys")
+}
+
+model Category {
+  id           String @id @default(uuid())
+  categoryName String @unique @db.VarChar(100)
+
+  created_at DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  user User?   @relation(fields: [name], references: [name])
+  name String?
+
+  articles Article[]
+
+  @@map("categories")
+}
+
+model Article {
+  id          String  @id @default(uuid())
+  title       String? @unique @db.VarChar(170)
+  description String?
+  banner      String?
+
+  publishDate String? @default("01/01/2055 00:00")
+  published   Boolean   @default(false)
+
+  created_at DateTime? @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  user         User?    @relation(fields: [name], references: [name])
+  name         String?
+  category     Category @relation(fields: [categoryName], references: [categoryName])
+  categoryName String
+  Tag1         Tag1?    @relation(fields: [tagName1], references: [tagName1])
+  tagName1     String?
+  Tag2         Tag2?    @relation(fields: [tagName2], references: [tagName2])
+  tagName2     String?
+  Tag3         Tag3?    @relation(fields: [tagName3], references: [tagName3])
+  tagName3     String?
+  Tag4         Tag4?    @relation(fields: [tagName4], references: [tagName4])
+  tagName4     String?
+  Tag5         Tag5?    @relation(fields: [tagName5], references: [tagName5])
+  tagName5     String?
+
+  @@map("articles")
+}
+
+model Tag1 {
+  id       String  @id @default(uuid())
+  tagName1 String? @unique @db.VarChar(30)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  articles  Article[]
+  User      User?     @relation(fields: [name], references: [name])
+  name      String?
+
+  @@map("tags1")
+}
+
+model Tag2 {
+  id       String  @id @default(uuid())
+  tagName2 String? @unique @db.VarChar(30)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  articles  Article[]
+  User      User?     @relation(fields: [name], references: [name])
+  name      String?
+
+  @@map("tags2")
+}
+
+model Tag3 {
+  id       String  @id @default(uuid())
+  tagName3 String? @unique @db.VarChar(30)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  articles  Article[]
+  User      User?     @relation(fields: [name], references: [name])
+  name      String?
+
+  @@map("tags3")
+}
+
+model Tag4 {
+  id       String  @id @default(uuid())
+  tagName4 String? @unique @db.VarChar(30)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  articles  Article[]
+  User      User?     @relation(fields: [name], references: [name])
+  name      String?
+
+  @@map("tags4")
+}
+
+model Tag5 {
+  id       String  @id @default(uuid())
+  tagName5 String? @unique @db.VarChar(30)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  articles  Article[]
+  User      User?     @relation(fields: [name], references: [name])
+  name      String?
+
+  @@map("tags5")
+}
+
+model Newslatter {
+  id        String @id @default(uuid())
+  nameEmail String @db.VarChar(125)
+  emailName String @unique @db.VarChar(100)
+
+  created_at DateTime? @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  @@map("newslatters")
+}
+
+model Contactform {
+  id           String @id @default(uuid())
+  nameContact  String @db.VarChar(125)
+  emailContact String @db.VarChar(100)
+  textContact  String @db.VarChar(5500)
+
+  created_at DateTime? @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  @@map("contactforms")
+}
