@@ -60,7 +60,7 @@ class AdminCreateUserService {
     })
 
     await transporter.sendMail({
-      from: "contato@builderseunegocioonline.com",
+      from: "contato@smtpemailwebapp.com.br",
       to: "gabriel.bastiani@hotmail.com.br",
       subject: "Confirme seu cadastro de usuario no Blog",
       html: `<div style="background-color: rgb(223, 145, 0); color: black; padding: 0 55px;">

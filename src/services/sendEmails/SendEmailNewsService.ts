@@ -14,7 +14,7 @@ class SendEmailNewsService {
     })
 
     await transporter.sendMail({
-      from: '"Blog - Builder Seu Negocio Online" <contato@builderseunegocioonline.com>',
+      from: '"Blog - Builder Seu Negocio Online" <contato@smtpemailwebapp.com.br>',
       to: 'gabriel.bastiani@hotmail.com.br',
       subject: "Novo contato em sua Newslatter",
       html: `<div style="background-color: rgb(223, 145, 0); color: black; padding: 0 55px;">
