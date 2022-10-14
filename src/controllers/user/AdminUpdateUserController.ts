@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import { UserUpdateService } from '../../services/user/UserUpdateService';
+import { AdminUserUpdateService } from '../../services/user/AdminUserUpdateService';
 
-class UpdateUserController {
+class AdminUpdateUserController {
   async handle(req: Request, res: Response) {
     const { name, email, user_id, role } = req.body;
 
-    const updateUserService = new UserUpdateService();
+    const updateUserService = new AdminUserUpdateService();
 
     const userUpdated = await updateUserService.execute({
       user_id,
@@ -17,4 +17,4 @@ class UpdateUserController {
   }
 }
 
-export { UpdateUserController }
+export { AdminUpdateUserController }
