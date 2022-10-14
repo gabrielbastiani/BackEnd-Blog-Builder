@@ -8,7 +8,7 @@ interface UserRequest {
   role: string;
 }
 
-class UserUpdateService {
+class AdminUserUpdateService {
   async execute({ user_id, name, email }: UserRequest) {
     const userUpdated = await prismaClient.user.update({
       where: {
@@ -17,7 +17,7 @@ class UserUpdateService {
       data: {
         name: name,
         email: email,
-        role: Role.USER
+        role: Role.ADMIN
       },
       select:{
         id: true,
@@ -31,4 +31,4 @@ class UserUpdateService {
   }
 }
 
-export { UserUpdateService }
+export { AdminUserUpdateService }
