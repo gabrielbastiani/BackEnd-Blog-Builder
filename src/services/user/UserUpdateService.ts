@@ -5,7 +5,6 @@ interface UserRequest {
   user_id: any;
   name: string;
   email: string;
-  role: string;
 }
 
 class UserUpdateService {
@@ -17,7 +16,6 @@ class UserUpdateService {
       data: {
         name: name,
         email: email,
-        role: Role.USER
       },
       select:{
         id: true,

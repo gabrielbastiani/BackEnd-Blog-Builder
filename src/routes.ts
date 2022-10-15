@@ -6,8 +6,6 @@ import multer from 'multer';
 import { CreateUserController } from './controllers/user/CreateUserController';
 import { UpdateUserController } from './controllers/user/UpdateUserController';
 import { PhotoUpdateUserController } from './controllers/user/PhotoUpdateUserController';
-import { AdminUpdateUserController } from './controllers/user/AdminUpdateUserController';
-import { PhotoAdminUpdateUserController } from './controllers/user/PhotoAdminUpdateUserController';
 import { AdminCreateUserController } from './controllers/user/AdminCreateUserController';
 import { RoleUserController } from './controllers/user/RoleUserController';
 import { AdminRoleUserController } from './controllers/user/AdminRoleUserController';
@@ -137,8 +135,6 @@ const upload = multer(uploadConfig.upload("./tmp"));
 router.post('/users', upload.single('file'), new CreateUserController().handle)
 router.put('/users/update', isAuthenticated, new UpdateUserController().handle)
 router.put('/users/photo', isAuthenticated, upload.single('file'), new PhotoUpdateUserController().handle)
-router.put('/users/update/admin', isAuthenticated, new AdminUpdateUserController().handle)
-router.put('/users/admin/photo', isAuthenticated, upload.single('file'), new PhotoAdminUpdateUserController().handle)
 router.post('/users/admin', upload.single('file'), new AdminCreateUserController().handle)
 router.put('/users/admin', new RoleUserController().handle)
 router.put('/users/update/role/admin', isAuthenticated, new AdminRoleUserController().handle)
