@@ -69,7 +69,7 @@ model Article {
   description String?
   banner      String?
 
-  publishDate String? @default("01/01/2055 00:00")
+  publishDate String? @default("01/01/2075 00:00")
   published   Boolean   @default(false)
 
   created_at DateTime? @default(now())
@@ -95,7 +95,7 @@ model Article {
 
 model Tag1 {
   id       String  @id @default(uuid())
-  tagName1 String? @unique @db.VarChar(30)
+  tagName1 String? @unique @db.VarChar(55)
 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -108,7 +108,7 @@ model Tag1 {
 
 model Tag2 {
   id       String  @id @default(uuid())
-  tagName2 String? @unique @db.VarChar(30)
+  tagName2 String? @unique @db.VarChar(55)
 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -121,7 +121,7 @@ model Tag2 {
 
 model Tag3 {
   id       String  @id @default(uuid())
-  tagName3 String? @unique @db.VarChar(30)
+  tagName3 String? @unique @db.VarChar(55)
 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -134,7 +134,7 @@ model Tag3 {
 
 model Tag4 {
   id       String  @id @default(uuid())
-  tagName4 String? @unique @db.VarChar(30)
+  tagName4 String? @unique @db.VarChar(55)
 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -147,7 +147,7 @@ model Tag4 {
 
 model Tag5 {
   id       String  @id @default(uuid())
-  tagName5 String? @unique @db.VarChar(30)
+  tagName5 String? @unique @db.VarChar(55)
 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
