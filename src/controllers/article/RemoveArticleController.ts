@@ -14,7 +14,7 @@ class RemoveArticleController{
       article_id,
     })
 
-    fs.unlinkSync(__dirname + '/' + '..' + '/' + '..' + '/' + '..' + '/' + 'tmp' + '/' + articleBanner.banner)
+    fs.unlinkSync(__dirname + '/' + '..' + '/' + '..' + '/' + '..' + '/' + 'imgblog' + '/' + articleBanner.banner)
 
     const article = await removeArticleService.execute({
       article_id
