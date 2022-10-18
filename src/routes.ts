@@ -4,7 +4,8 @@ import multer from 'multer';
 
 //-- ROTAS USER --
 import { CreateUserController } from './controllers/user/CreateUserController';
-import { UpdateUserController } from './controllers/user/UpdateUserController';
+import { UpdateUserNameController } from './controllers/user/UpdateUserNameController';
+import { UpdateUserEmailController } from './controllers/user/UpdateUserEmailController';
 import { PhotoUpdateUserController } from './controllers/user/PhotoUpdateUserController';
 import { AdminCreateUserController } from './controllers/user/AdminCreateUserController';
 import { RoleUserController } from './controllers/user/RoleUserController';
@@ -137,7 +138,8 @@ const upload = multer(uploadConfig.upload("./imgblog"));
 
 //-- ROTAS USER --
 router.post('/users', upload.single('file'), new CreateUserController().handle)
-router.put('/users/update', isAuthenticated, new UpdateUserController().handle)
+router.put('/users/update/name', isAuthenticated, new UpdateUserNameController().handle)
+router.put('/users/update/email', isAuthenticated, new UpdateUserEmailController().handle)
 router.put('/users/photo', isAuthenticated, upload.single('file'), new PhotoUpdateUserController().handle)
 router.post('/users/admin', upload.single('file'), new AdminCreateUserController().handle)
 router.put('/users/admin', new RoleUserController().handle)
