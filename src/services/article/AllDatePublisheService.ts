@@ -27,7 +27,8 @@ class AllDatePublisheService {
 
         const job = new CronJob('0 * * * * *', async () => {
 
-            const dateNow = moment(new Date()).format('DD/MM/YYYY HH:mm');
+            const nowDate = new Date();
+            const dateNow = new Intl.DateTimeFormat('pt-BR', {dateStyle: 'short', timeStyle: 'short'}).format(nowDate);
 
             console.log("Data atual:", dateNow)
 
