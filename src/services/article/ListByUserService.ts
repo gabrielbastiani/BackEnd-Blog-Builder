@@ -10,6 +10,7 @@ class ListByUserService {
     const allarticles = await prismaClient.article.findMany({
       where: {
         name: name,
+        published: true
      },
       orderBy: {
         created_at: 'desc'
@@ -18,7 +19,8 @@ class ListByUserService {
 
     const articles = await prismaClient.article.findMany({
       where: {
-        name: name
+        name: name,
+        published: true
      },
       skip,
       take: limit,

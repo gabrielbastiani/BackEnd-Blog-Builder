@@ -9,7 +9,8 @@ class ListByTag1Service {
     //Pegar quantidade de todos os artigos
     const allarticles = await prismaClient.article.findMany({
       where: {
-        tagName1: tagName1
+        tagName1: tagName1,
+        published: true
      },
       orderBy: {
         created_at: 'desc'
@@ -18,7 +19,8 @@ class ListByTag1Service {
 
     const articles = await prismaClient.article.findMany({
       where: {
-         tagName1: tagName1
+         tagName1: tagName1,
+         published: true
      },
       skip,
       take: limit,
