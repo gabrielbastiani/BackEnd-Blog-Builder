@@ -182,7 +182,7 @@ router.put('/article/banner/update', isAuthenticated, upload.single('file'), new
 router.get('/article/exact', new ListExactArticleController().handle)
 router.get('/article/all', new ListPageArticlesController().handle)
 router.get('/article/admin', isAuthenticated, new AdminDashboardPageArticlesController().handle)
-router.get('/article', isAuthenticated, new ArticlesAllController().handle)
+router.get('/article', new ArticlesAllController().handle)
 router.get('/article/filter', isAuthenticated, new AllArticlesController().handle)
 router.get('/article/search', new AllPublishedArticlesController().handle)
 router.get('/article/published/blog', new ListPublishedArticleController().handle)

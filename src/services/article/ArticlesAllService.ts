@@ -10,6 +10,9 @@ class ArticlesAllService {
         const findAll = await prismaClient.article.findMany({
             where: {
                 id: article_id,
+            },
+            select: {
+                title: true,
             }
         })
         return findAll;
