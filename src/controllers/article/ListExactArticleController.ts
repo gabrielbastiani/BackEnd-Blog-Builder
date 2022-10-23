@@ -3,9 +3,9 @@ import { ListExactArticleService } from '../../services/article/ListExactArticle
 
 class ListExactArticleController {
     async handle(req: Request, res: Response) {
-        const { article_id } = req.query;
+        const { title } = req.query;
         const listExactArticleService = new ListExactArticleService();
-        const article = await listExactArticleService.execute({ article_id });
+        const article = await listExactArticleService.execute({ title });
 
         return res.json(article);
     }

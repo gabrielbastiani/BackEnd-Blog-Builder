@@ -3,12 +3,12 @@ import { PageArticlesService } from '../../services/article/PageArticlesService'
 
 class PageArticlesController {
   async handle(req: Request, res: Response) {
-    const article_id = req.query.article_id as string;
+    const title = req.query.title as string;
 
     const articlePage = new PageArticlesService();
 
     const articles = await articlePage.execute({
-      article_id
+      title
     });
 
     return res.json(articles);

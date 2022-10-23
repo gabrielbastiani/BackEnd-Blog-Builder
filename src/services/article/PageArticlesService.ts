@@ -1,15 +1,11 @@
 import prismaClient from '../../prisma';
 
 
-interface ArticleRequest {
-  article_id: string;
-}
-
 class PageArticlesService {
-  async execute({article_id}: ArticleRequest) {
+  async execute({title}) {
     const post = await prismaClient.article.findUnique({
       where: {
-        id: article_id,
+        title
       }
     });
 

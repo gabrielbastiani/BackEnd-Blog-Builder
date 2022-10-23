@@ -46,6 +46,7 @@ import { UpdateArticleTitleController } from './controllers/article/UpdateArticl
 import { UpdateArticleCategoryController } from './controllers/article/UpdateArticleCategoryController';
 import { UpdateArticleDescriptionController } from './controllers/article/UpdateArticleDescriptionController';
 import { UpdateBannerArticleController } from './controllers/article/UpdateBannerArticleController';
+import { ListExactArticleIDController } from './controllers/article/ListExactArticleIDController';
 import { ListExactArticleController } from './controllers/article/ListExactArticleController';
 import { ListPageArticlesController } from './controllers/article/ListPageArticlesController';
 import { AdminDashboardPageArticlesController } from './controllers/article/AdminDashboardPageArticlesController';
@@ -179,6 +180,7 @@ router.put('/article/update/title', isAuthenticated, new UpdateArticleTitleContr
 router.put('/article/update/category', isAuthenticated, new UpdateArticleCategoryController().handle)
 router.put('/article/update/description', isAuthenticated, new UpdateArticleDescriptionController().handle)
 router.put('/article/banner/update', isAuthenticated, upload.single('file'), new UpdateBannerArticleController().handle)
+router.get('/article/exact/id', isAuthenticated, new ListExactArticleIDController().handle)
 router.get('/article/exact', new ListExactArticleController().handle)
 router.get('/article/all', new ListPageArticlesController().handle)
 router.get('/article/admin', isAuthenticated, new AdminDashboardPageArticlesController().handle)

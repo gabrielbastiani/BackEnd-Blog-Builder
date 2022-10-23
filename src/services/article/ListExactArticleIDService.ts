@@ -1,15 +1,15 @@
 import prismaClient from '../../prisma';
 
 
-class ListExactArticleService {
-    async execute({ title }) {
+class ListExactArticleIDService {
+    async execute({ article_id }) {
         const ExactArticle = await prismaClient.article.findUnique({
             where: {
-                title
+                id: article_id
             }
         })
         return ExactArticle;
     }
 }
 
-export { ListExactArticleService }
+export { ListExactArticleIDService }
