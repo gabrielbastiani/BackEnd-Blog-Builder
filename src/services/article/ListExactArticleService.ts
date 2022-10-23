@@ -5,7 +5,7 @@ class ListExactArticleService {
     async execute({ title }) {
         const ExactArticle = await prismaClient.article.findUnique({
             where: {
-                title
+                title: title
             }
         })
         return ExactArticle;
