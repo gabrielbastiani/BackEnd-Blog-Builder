@@ -49,16 +49,16 @@ class CreateUserService {
     })
 
     const transporter = nodemailer.createTransport({
-      host: "smtplw.com.br",
+      host: "smart.iagentesmtp.com.br",
       port: 587,
       auth: {
-        user: "gabrielbastiani",
-        pass: "xbZwBGam6780"
+        user: "contato@builderseunegocioonline.com",
+        pass: "45839a96"
       }
     })
 
     await transporter.sendMail({
-      from: "'Blog - Builder Seu Negocio Online' <contato@smtpemailwebapp.com.br>",
+      from: "'Blog - Builder Seu Negocio Online' <contato@builderseunegocioonline.com.br>",
       to: user.email,
       subject: "Confirme seu cadastro de usuario no Blog",
       html: `<div style="background-color: rgb(223, 145, 0); color: black; padding: 0 55px;">
@@ -76,7 +76,7 @@ class CreateUserService {
     });
 
     await transporter.sendMail({
-      from: "'Blog - Builder Seu Negocio Online' <contato@smtpemailwebapp.com.br>",
+      from: "'Blog - Builder Seu Negocio Online' <contato@builderseunegocioonline.com.br>",
       to: "gabriel.bastiani@hotmail.com.br",
       subject: "Novo usúario se cadastrando no blog",
       html: `<div style="background-color: rgb(223, 145, 0); color: black; padding: 0 55px;">
