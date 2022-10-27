@@ -50,7 +50,7 @@ class AllDatePublisheService {
                     port: 587,
                     auth: {
                         user: "contato@builderseunegocioonline.com",
-                        pass: "45839a96"
+                        pass: "6370a655"
                     }
                 })
 
