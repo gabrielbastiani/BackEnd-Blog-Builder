@@ -53,7 +53,7 @@ class CreateUserService {
       port: 587,
       auth: {
         user: "contato@builderseunegocioonline.com",
-        pass: "6370a655"
+        pass: "5c6673f3"
       }
     })
 
