@@ -1,6 +1,7 @@
 import prismaClient from '../../prisma'
 import { hash } from 'bcryptjs'
 import nodemailer from "nodemailer";
+require('dotenv/config');
 
 
 interface UserRequest {
@@ -49,11 +50,11 @@ class CreateUserService {
     })
 
     const transporter = nodemailer.createTransport({
-      host: "smart.iagentesmtp.com.br",
+      host: process.env.HOST_SMTP,
       port: 587,
       auth: {
-        user: "contato@builderseunegocioonline.com",
-        pass: "5c6673f3"
+        user: process.env.USER_SMTP,
+        pass: process.env.PASS_SMTP
       }
     })
 
